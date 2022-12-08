@@ -1,4 +1,4 @@
-use jest_workaround::TransformVisitor;
+use swc_mutable_cjs_exports::TransformVisitor;
 use std::path::PathBuf;
 use swc_core::{
     common::{chain, Mark},
