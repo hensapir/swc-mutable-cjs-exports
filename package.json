@@ -10,14 +10,14 @@
     ],
     "scripts": {
         "test": "jest",
-        "build": "cargo build --target wasm32-unknown-unknown",
-        "prepublishOnly": "cargo build --release --target wasm32-unknown-unknown"
+        "build": "cargo build --target wasm32-wasi",
+        "prepublishOnly": "cargo build --release --target wasm32-wasi"
     },
     "packageManager": "pnpm@7.13.4",
-    "main": "target/wasm32-unknown-unknown/release/swc-mutable-cjs-exports.wasm",
+    "main": "target/wasm32-wasi/release/swc-mutable-cjs-exports.wasm",
     "files": [
         "src",
-        "target/wasm32-unknown-unknown/release/swc-mutable-cjs-exports.wasm"
+        "target/wasm32-wasi/release/swc-mutable-cjs-exports.wasm"
     ],
     "homepage": "https://github.com/magic-akari/jest_workaround#readme",
     "repository": {
