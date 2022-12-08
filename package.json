@@ -1,7 +1,7 @@
 {
-    "name": "jest_workaround",
-    "version": "0.1.13",
-    "description": "[SWC plugin] workaround for jest",
+    "name": "swc-mutable-cjs-exports",
+    "version": "0.0.1",
+    "description": "SWC plugin to create mutable ESM exports in transpiled CJS",
     "author": "magic-akari <akari.ccino@gmail.com>",
     "license": "MIT",
     "keywords": [
