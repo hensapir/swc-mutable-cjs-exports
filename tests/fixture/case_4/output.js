@@ -1,9 +1,9 @@
 export { };
 function _export(target, all) {
     for(var name in all)Object.defineProperty(target, name, {
-        enumerable: true,
-        get: all[name],
-        configurable: true
+        writable: true,
+        value: all[name],
+        enumerable: true
     });
 }
 _export(exports, {

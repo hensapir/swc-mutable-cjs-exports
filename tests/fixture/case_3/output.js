@@ -1,8 +1,8 @@
 export { };
 Object.defineProperty(exports, "App", {
-    enumerable: true,
-    get: ()=>App,
-    configurable: true
+    writable: true,
+    value: App,
+    enumerable: true
 });
 import React from "react";
 const App = ()=>{

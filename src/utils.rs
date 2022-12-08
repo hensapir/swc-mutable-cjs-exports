@@ -122,7 +122,7 @@ pub(crate) fn object_define_enumerable_configurable(
             props: vec![
                 PropOrSpread::Prop(Box::new(
                     KeyValueProp {
-                        key: quote_ident!("enumerable").into(),
+                        key: quote_ident!("writable").into(),
                         value: Box::new(true.into()),
                     }
                     .into(),
@@ -130,7 +130,7 @@ pub(crate) fn object_define_enumerable_configurable(
                 prop,
                 PropOrSpread::Prop(Box::new(
                     KeyValueProp {
-                        key: quote_ident!("configurable").into(),
+                        key: quote_ident!("enumerable").into(),
                         value: Box::new(true.into()),
                     }
                     .into(),
@@ -146,10 +146,15 @@ pub(crate) fn emit_export_stmts(exports: Ident, mut prop_list: Vec<ObjPropKeyIde
         0 | 1 => prop_list
             .pop()
             .map(|obj_prop| {
+                let getter = KeyValueProp {
+                    key: quote_ident!("value").into(),
+                    value: Box::new(Expr::from(obj_prop.2.clone()))
+                };
+            
                 object_define_enumerable_configurable(
                     exports.as_arg(),
                     quote_str!(obj_prop.span(), obj_prop.key()).as_arg(),
-                    prop_arrow((js_word!("get"), DUMMY_SP, obj_prop.2.clone()).into()).into(),
+                    PropOrSpread::Prop(Box::new(Prop::KeyValue(getter)))
                 )
                 .into_stmt()
             })
@@ -168,6 +173,7 @@ pub(crate) fn emit_export_stmts(exports: Ident, mut prop_list: Vec<ObjPropKeyIde
 
             let esm_export_ident = private_ident!("_export");
 
+            // This invokes _export(exports, {child: () => child})
             vec![
                 Stmt::Decl(Decl::Fn(
                     esm_export().into_fn_decl(esm_export_ident.clone()),
@@ -191,7 +197,7 @@ pub(crate) fn esm_export() -> Function {
     let name = private_ident!("name");
 
     let getter = KeyValueProp {
-        key: quote_ident!("get").into(),
+        key: quote_ident!("value").into(),
         value: Box::new(all.clone().computed_member(Expr::from(name.clone()))),
     };
 

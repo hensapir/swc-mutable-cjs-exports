@@ -1,8 +1,8 @@
 export { };
 Object.defineProperty(exports, "default", {
-    enumerable: true,
-    get: ()=>_default,
-    configurable: true
+    writable: true,
+    value: _default,
+    enumerable: true
 });
 const foo = 42;
 const _default = foo;

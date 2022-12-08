@@ -1,8 +1,8 @@
 export { };
 Object.defineProperty(exports, "getRedis", {
-    enumerable: true,
-    get: ()=>getRedis,
-    configurable: true
+    writable: true,
+    value: getRedis,
+    enumerable: true
 });
 import memoize from "p-memoize";
 import { getConfig } from "./config";
