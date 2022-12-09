@@ -1,6 +1,6 @@
 {
     "name": "swc-mutable-cjs-exports",
-    "version": "0.0.1",
+    "version": "0.0.3",
     "description": "SWC plugin to create mutable ESM exports in transpiled CJS",
     "author": "magic-akari <akari.ccino@gmail.com>",
     "license": "MIT",
@@ -14,10 +14,10 @@
         "prepublishOnly": "cargo build --release --target wasm32-wasi"
     },
     "packageManager": "pnpm@7.13.4",
-    "main": "target/wasm32-wasi/release/swc-mutable-cjs-exports.wasm",
+    "main": "target/wasm32-wasi/release/swc_mutable_cjs_exports.wasm",
     "files": [
         "src",
-        "target/wasm32-wasi/release/swc-mutable-cjs-exports.wasm"
+        "target/wasm32-wasi/release/swc_mutable_cjs_exports.wasm"
     ],
     "homepage": "https://github.com/magic-akari/jest_workaround#readme",
     "repository": {

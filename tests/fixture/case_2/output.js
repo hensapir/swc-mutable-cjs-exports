@@ -1,9 +1,5 @@
 export { };
-Object.defineProperty(exports, "getRedis", {
-    writable: true,
-    value: getRedis,
-    enumerable: true
-});
+exports.getRedis = getRedis;
 import memoize from "p-memoize";
 import { getConfig } from "./config";
 const getRedis = memoize(async ()=>{

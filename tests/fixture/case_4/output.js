@@ -1,15 +1,6 @@
 export { };
-function _export(target, all) {
-    for(var name in all)Object.defineProperty(target, name, {
-        writable: true,
-        value: all[name],
-        enumerable: true
-    });
-}
-_export(exports, {
-    foo: ()=>foo,
-    bar: ()=>bar
-});
+exports.foo = foo;
+exports.bar = bar;
 function foo() {
     foo = ()=>1;
     foo.bar = ()=>2;

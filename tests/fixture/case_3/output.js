@@ -1,9 +1,5 @@
 export { };
-Object.defineProperty(exports, "App", {
-    writable: true,
-    value: App,
-    enumerable: true
-});
+exports.App = App;
 import React from "react";
 const App = ()=>{
     return React.createElement("main", {

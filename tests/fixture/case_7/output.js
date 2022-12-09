@@ -1,8 +1,4 @@
 export { };
-Object.defineProperty(exports, "default", {
-    writable: true,
-    value: _default,
-    enumerable: true
-});
+exports._default = _default;
 const foo = 42;
 const _default = foo;
